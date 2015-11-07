@@ -7,14 +7,7 @@ public class Test {
 		FCN.setGraph();
 		System.out.println("초기 그래프 상태 출력\n");
 		FCN.printGraph();
+		FCN.checkConnectivity();
 		
-	
-		FCN.checkGraph();
-		
-		FCN.checkGraph();
-		
-		FCN.checkGraph();
-		
-		FCN.checkGraph();
 	}
 }
