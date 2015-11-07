@@ -33,9 +33,9 @@
  *    Graph의 모든 Vertex가 삭제되면 프로그램을 종료한다.
  *  
  *  * 사용한 variables
- *  v1, v2, v3 = LinkedList<Number> v1은 1~4, v2는 5~9, v3는 10을 포함하도록 하도록 한다.
- *	selectedVertex = 1부터 10까지의 random 값을 저장하는 변수이다.
- *	count = Connectivity Number of Graph이다. Vertex 선택 후 연관된 Vertex 삭제 시 count가 증가한다.
+ *  v1, v2, v3 : LinkedList<Number> v1은 1~4, v2는 5~9, v3는 10을 포함하도록 하도록 한다.
+ *	selectedVertex : 1부터 10까지의 random 값을 저장하는 변수이다.
+ *	count : Connectivity Number of Graph이다. Vertex 선택 후 연관된 Vertex 삭제 시 count가 증가한다.
  */
 
 package kr.ac.kookmin.discrete.fcn;
@@ -52,10 +52,10 @@ public class FindConnectedNumber {
 
 	/*
 	 * Method : setGraph()
-	 * description : setGraph의 사용 목적은 1부터 10까지의 vertex들 중 연관성이 있는 vertex끼리 v1,v2,v3의 리스트로 옮겨 연결해주는 것이다.
-	 * Variables : 
+	 * description : 1부터 10까지의 vertex들 중 연관성이 있는 vertex끼리 v1,v2,v3의 리스트에 추가하여 서로 연결해주는 작업을 수행한다.
+	 * Variables : i => 1부터 10까지의 수를 for문으로 돌리기 위해 사옹되었다.
+	 * 			   v1, v2, v3 => 분류한 i를 v1,v2,v3로 분류하기 위해 사용되었다. 
 	 */
-	//1~4까지는 v1으로 5~9까지는 v2로 10은 v3로 넣는다.
 	public void setGraph(){
 		for (int i=1; i<11; i++){
 			if (0 < i && i < 5){
@@ -70,7 +70,12 @@ public class FindConnectedNumber {
 		}
 	}
 	
-	//전체 리스트를 출력해준다.
+	/*
+	 * Method : printGraph()
+	 * description : Graph의 상태를 화면에 출력해주는 작업을 수행한다.
+	 * Variables : e => for each문을 사용하기 위해 사용되었다.
+	 * 			   v1, v2, v3 => 각 리스트들의 전체 내용을 같이 출력하여 Graph를 표현하기 위해 사용하였다. 
+	 */
 	public void printGraph(){
 		System.out.print("Graph : ");
 		for (Number e : v1){
@@ -85,7 +90,12 @@ public class FindConnectedNumber {
 		System.out.println("\n");
 	}
 	
-	//랜덤 Vertex를 선택한다.
+	/*
+	 * Method : setRandomVertex()
+	 * description : 1부터 10까지 Random Vertex를 선택한다. 그리고 선택된 Vertex를 출력해주고 return해준다.
+	 * Variables : i => for문을 수행하기 위하여 사용되었다.
+	 * 			  selectedVertex => random()함수를 통해 선택된 1부터 10사이의 값을 return해주기 위해 사용되었다. 
+	 */
 	public int setRandomVertex(){
 		for (int i=0; i<10; i++){
 			selectedVertex = 1+(int)(Math.random()*10);
@@ -94,6 +104,13 @@ public class FindConnectedNumber {
 		return selectedVertex;
 	}
 	
+	/*
+	 * Method : removeGraph()
+	 * description : selectedVertex값을 받아와서 해당 Vertex를 포함하고 있는 링크드리스트를 clear하여 삭제한다. 그리고 count를 증가시킨 후 Graph를 출력해준다.
+	 * 				만일 해당 리스트가 비워져 있을 시 Graph와 알림 메시지를 출력해준다. 
+	 * Variables : count => connectivity number of graph이다. 
+	 * 			  selectedVertex => random()함수를 통해 선택된 1부터 10사이의 값을 return해주기 위해 사용되었다. 
+	 */
 	//선택된 Vertex의 값이 존재하는 리스트를 비운다.
 	public void removeGraph(int selectedVertex){
 				if (0 < selectedVertex && selectedVertex < 5){
@@ -104,7 +121,7 @@ public class FindConnectedNumber {
 					else{
 						v1.clear();
 						count++;
-						System.out.println("선택된 Vertex 그래프 삭제 후 그래프 상태\n");
+						System.out.println("선택된 Vertex 삭제 후 그래프 상태\n");
 						printGraph();
 						System.out.println("현재 count 수 : "+count);
 					}
@@ -117,7 +134,7 @@ public class FindConnectedNumber {
 					else{
 						v2.clear();
 						count++;
-						System.out.println("선택된 Vertex 그래프 삭제 후 그래프 상태\n");
+						System.out.println("선택된 Vertex 삭제 후 그래프 상태\n");
 						printGraph();
 						System.out.println("현재 count 수 : "+count);
 					}
@@ -130,7 +147,7 @@ public class FindConnectedNumber {
 					else{
 						v3.clear();
 						count++;
-						System.out.println("선택된 Vertex 그래프 삭제 후 그래프 상태\n");
+						System.out.println("선택된 Vertex 삭제 후 그래프 상태\n");
 						printGraph();
 						System.out.println("현재 count 수 : "+count);
 					}
