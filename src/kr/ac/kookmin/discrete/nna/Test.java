@@ -10,7 +10,11 @@ public class Test {
 			}
 			System.out.println("");
 		}
-			
+		NNA.setGraph();
+		NNA.setRandomVertex();
+		NNA.setRandomVertex();
+		NNA.setRandomVertex();
+		NNA.setRandomVertex();
 	}
 
 }

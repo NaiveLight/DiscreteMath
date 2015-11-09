@@ -3,7 +3,7 @@
  * Student ID : 20113281
  * Program ID : HW#2 - NearNeighborAlgorithm
  * Description : 
- * Algorithm : 
+ * Algorithm : V = Vertices in Graph, list
  * 			Choose any v1 in V
  * 			v' = v1
  * 			w  = 0
@@ -29,14 +29,28 @@ package kr.ac.kookmin.discrete.nna;
 import java.util.*;
 
 public class NearNeighbor {
-	public String vertex;
+	public int vertex;
+	public String RandomVertex;
 	public int weight;
-	public LinkedList<String> graphvertex  = new LinkedList<String>();
+	public LinkedList<String> vertexlist  = new LinkedList<String>();
+	public LinkedList<String> pathlist = new LinkedList<String>();
 	public int Path[][] = {{0, 5, 6, 8}, {5, 0, 7, 10}, {6, 7, 0, 3}, {8, 10, 3, 0}};
 	
-	public void setList(){
-		String[] graph = {"A","B","C","D"};
-		graphvertex.addAll(4, graph);
+	public void setGraph(){
+		vertexlist.add("A");
+		vertexlist.add("B");
+		vertexlist.add("C");
+		vertexlist.add("D");
+	}
+	
+	public void setRandomVertex(){
+		vertex = (int)(Math.random()*4);
+		RandomVertex = vertexlist.get(vertex);
+		System.out.println("선택된 Vertex : " + RandomVertex);
+		vertexlist.remove(vertex);
+		pathlist.add(RandomVertex);
+		System.out.println("남은 Vertex : "+vertexlist+"\n"+"Pahtlist : "+pathlist);
+
 	}
 	
 }
