@@ -12,9 +12,6 @@ public class Test {
 		}
 		NNA.setGraph();
 		NNA.setRandomVertex();
-		NNA.setRandomVertex();
-		NNA.setRandomVertex();
-		NNA.setRandomVertex();
+		NNA.findNeigborVertices();
 	}
-
 }
