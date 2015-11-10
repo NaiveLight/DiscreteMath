@@ -12,6 +12,6 @@ public class Test {
 		}
 		NNA.setGraph();
 		NNA.setRandomVertex();
-		NNA.findNeigborVertices();
+		NNA.findResultOfCircuit();
 	}
 }
